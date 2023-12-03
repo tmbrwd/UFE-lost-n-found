@@ -1,0 +1,48 @@
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Item {
+  id                  Int       @id @default(autoincrement())
+  name                String
+  description         String
+  location            String
+  foundDate           DateTime
+  additionalInformation String?
+  imageUrl            String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  // Foreign keys
+  categoryId          Int
+  claims              Claim[]   @relation("ItemClaims")
+  category            Category  @relation("ItemToCategory", fields: [categoryId], references: [id])
+  itemCategories      Category[] @relation("CategoryToItems")
+}
+
+model Category {
+  id                  Int       @id @default(autoincrement())
+  name                String
+  items               Item[]    @relation("CategoryToItems")
+  category            Item[]    @relation("ItemToCategory")
+}
+
+model Claim {
+  id                  Int       @id @default(autoincrement())
+  studentId           String
+  studentEmail        String
+  lostDate            DateTime
+  lostLocation        String
+  specify             String
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  itemId              Int
+  item                Item      @relation("ItemClaims", fields: [itemId], references: [id])
+}
+
