@@ -5,5 +5,7 @@ export interface Translation {
     english: string;
     mongolian: string;
     mainText: string;
+    foundButton: string;
+    searchPlaceholder: string;
   }
   

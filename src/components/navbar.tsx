@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Translation } from 'translations/translations';
+import { type Translation } from 'translations/translations';
 import en from 'translations/en';
 import mgl from 'translations/mgl';
 

@@ -1,25 +1,22 @@
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
-
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+  provider = "mysql"
+  url = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model Item {
   id                  Int       @id @default(autoincrement())
-  name                String
-  description         String
+  itemName                String
+  itemDescription         String
   location            String
   foundDate           DateTime
-  additionalInformation String?
-  imageUrl            String?
+  itemImageUrl            String?
   createdAt           DateTime  @default(now())
   updatedAt           DateTime  @updatedAt
-
-  // Foreign keys
   categoryId          Int
   claims              Claim[]   @relation("ItemClaims")
   category            Category  @relation("ItemToCategory", fields: [categoryId], references: [id])
