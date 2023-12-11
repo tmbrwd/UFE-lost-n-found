@@ -4,6 +4,8 @@ import { env } from "~/env";
 import { appRouter } from "~/server/api/routers/root";
 import { createTRPCContext } from "~/server/api/trpc";
 
+
+export type AppRouter = typeof appRouter;
 // export API handler
 export default createNextApiHandler({
   router: appRouter,
