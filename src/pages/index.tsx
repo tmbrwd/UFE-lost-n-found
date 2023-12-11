@@ -58,7 +58,7 @@ export default function Home() {
           <div className="grid grid-cols-4 gap-10">
          
             {getItems.data?.map((item) => (
-              <div key={item.id} className="bg-white shadow-lg p-4 rounded-lg">
+              <div key={item.id} className="bg-white shadow-lg p-4 rounded-lg hover:scale-110 transition-all">
                 <img src="bg2.jpeg" alt="" className="rounded-xl"/>
                 <p className="mt-5 font-bold text-2xl">{item.itemName}</p>
                 <p className=" text-lg">{item.itemDescription}</p>
