@@ -54,21 +54,23 @@ export default function Home() {
           </div>
         </div>
         <div className="p-10">
-        <h2 className="text-brand font-bold text-3xl flex justify-center p-10">Сүүлд олдсон эд зүйлс</h2>
+          <h2 className="text-brand font-bold text-3xl flex justify-center p-10">Сүүлд олдсон эд зүйлс</h2>
           <div className="grid grid-cols-4 gap-10">
-         
+
             {getItems.data?.map((item) => (
-              <div key={item.id} className="bg-white shadow-lg p-4 rounded-lg hover:scale-110 transition-all">
-                <img src="bg2.jpeg" alt="" className="rounded-xl"/>
-                <p className="mt-5 font-bold text-2xl">{item.itemName}</p>
-                <p className=" text-lg">{item.itemDescription}</p>
-                <p className="text-slate-400">{item.createdAt.toLocaleString()}</p>
-                <button className="bg-brand text-white font-bold p-2 rounded-xl mt-5">Хүсэлт илгээх</button>
+              <div key={item.id} className="bg-white shadow-lg p-4 rounded-lg hover:scale-110 transition-all hover:opacity-90">
+                <img src="bg2.jpeg" alt="" className="rounded-xl" />
+                <div className="flex justify-between mt-5">
+                  <p className="font-bold text-xl">{item.itemName}</p>
+                  <p className="text-slate-400 text-xl">{item.createdAt.toLocaleString()}</p>
+                </div>
+                <p className=" text-lg overflow-scroll">{item.itemDescription}</p>
+                <div className="flex items-end">
+                  <button className="bg-brand text-white font-bold p-2 rounded-xl mt-5">Хүсэлт илгээх</button>
+                </div>
+
               </div>
             ))}
-          </div>
-          <div className="">
-           
           </div>
           <div className="flex p-10 justify-between m-0 mx-[10%]">
             <div className="items-center">
