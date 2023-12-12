@@ -12,7 +12,7 @@ import { getItemRouter } from "./getItem";
 export const appRouter = createTRPCRouter({
   item: itemRouter,
   category: categoryRouter,
-  getItem: getItemRouter
+  getItem: getItemRouter,
 });
 
 // export type definition of API
